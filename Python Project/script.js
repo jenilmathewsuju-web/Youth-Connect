@@ -8,26 +8,27 @@
 // 1. SAMPLE WEBSITE DATA
 
 let events = JSON.parse(localStorage.getItem("ys_events")) || [
+   
     {
         id: 1,
-        name: "VBS FollowUp",
-        date: "14-11-2026",
-        venue: "Church",
-        description: "A time of fellowship, worship and fun games."
+        name: "Youth Fellowship",
+        date: "2026-12-05",
+        venue: "Church Hall",
+        description: "A time of fellowship, worship and learning.",
+
+        openingDate: "2026-11-15T09:00",
+        closingDate: "2026-12-03T23:59"
     },
+
     {
         id: 2,
-        name: "Badminton Tournament",
-        date: "15-11-2026",
-        venue: "Alpha Sports Arena, Thadiyoor",
-        description: "Jibin Chacko Memorial Badminton Tournament"
-    },
-    {
-        id: 3,
-        name: "Tour",
-        date: "25-12-2026",
-        venue: "To be announced",
-        description: "Join us for memorable moments on the trip."
+        name: "Christmas Celebration",
+        date: "2026-12-20",
+        venue: "Church Auditorium",
+        description: "Join us for our Christmas celebrations.",
+
+        openingDate: "2026-11-20T09:00",
+        closingDate: "2026-12-15T23:59"
     }
 ];
 
@@ -64,6 +65,9 @@ function saveData() {
 
 // 3. DISPLAY EVENTS
 
+
+// DISPLAY EVENTS WITH MINI CALENDAR
+
 function displayEvents() {
 
     const container = document.getElementById("eventContainer");
@@ -72,31 +76,151 @@ function displayEvents() {
 
     events.forEach(event => {
 
+        const now = new Date();
+
+        const opening = new Date(event.openingDate);
+        const closing = new Date(event.closingDate);
+
+        let status;
+        let statusClass;
+        let countdown;
+        let canRegister = false;
+
+        if (now < opening) {
+
+            status = "Registration Upcoming";
+            statusClass = "status-upcoming";
+
+            countdown = "Opens: " +
+                opening.toLocaleString();
+
+        }
+
+        else if (now >= opening && now <= closing) {
+
+            status = "Registration Open";
+            statusClass = "status-open";
+
+            countdown = "Closes: " +
+                closing.toLocaleString();
+
+            canRegister = true;
+
+        }
+
+        else {
+
+            status = "Registration Closed";
+            statusClass = "status-closed";
+
+            countdown = "Registration period has ended.";
+
+        }
+
+
         const card = document.createElement("div");
+
         card.className = "event-card";
 
         const title = document.createElement("h3");
         title.textContent = event.name;
 
-        const date = document.createElement("p");
-        date.className = "event-date";
-        date.textContent = "Date: " + event.date;
+        const eventDate = document.createElement("p");
+        eventDate.textContent =
+            "Event Date: " + event.date;
 
         const venue = document.createElement("p");
-        venue.textContent = "Venue: " + event.venue;
+        venue.textContent =
+            "Venue: " + event.venue;
 
         const description = document.createElement("p");
         description.textContent = event.description;
 
+        // MINI CALENDAR
+
+        const calendar = document.createElement("div");
+
+        calendar.className = "event-calendar";
+
+        const calendarHeading = document.createElement("div");
+
+        calendarHeading.className = "calendar-heading";
+
+        calendarHeading.textContent = "📅 Registration Calendar";
+
+        const openingRow = document.createElement("div");
+
+        openingRow.className = "calendar-date";
+
+        openingRow.innerHTML =
+            "<span>Opening Date</span><strong></strong>";
+
+        openingRow.querySelector("strong").textContent =
+            opening.toLocaleString();
+
+        const closingRow = document.createElement("div");
+
+        closingRow.className = "calendar-date";
+
+        closingRow.innerHTML =
+            "<span>Closing Date</span><strong></strong>";
+
+        closingRow.querySelector("strong").textContent =
+            closing.toLocaleString();
+
+        calendar.append(
+            calendarHeading,
+            openingRow,
+            closingRow
+        );
+
+        // REGISTRATION STATUS
+
+        const statusBadge = document.createElement("span");
+
+        statusBadge.className =
+            "registration-status " + statusClass;
+
+        statusBadge.textContent = status;
+
+        // COUNTDOWN
+
+        const timer = document.createElement("p");
+
+        timer.className = "registration-countdown";
+
+        timer.textContent = countdown;
+
+        // REGISTER BUTTON
+
         const button = document.createElement("button");
-        button.className = "primary-btn";
-        button.textContent = "Register";
+
+        button.className =
+            "primary-btn event-register-btn";
+
+        button.textContent =
+            canRegister ? "Register Now" :
+            now < opening ? "Registration Not Open" :
+            "Registration Closed";
+
+        button.disabled = !canRegister;
 
         button.addEventListener("click", () => {
+
             openRegistration(event.id);
+
         });
 
-        card.append(title, date, venue, description, button);
+        card.append(
+            title,
+            eventDate,
+            venue,
+            description,
+            calendar,
+            statusBadge,
+            timer,
+            button
+        );
 
         container.appendChild(card);
 
