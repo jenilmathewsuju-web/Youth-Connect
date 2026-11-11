@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yuvajana Sakhyam | Parackathanam Mar Thoma </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+
+<header class="navbar">
+
+    <a href="#home" class="brand">
+        <span class="brand-icon">✦</span>
+        <span>
+            <strong>PARACKATHANAM</strong>
+            <strong>YUVANAJA SAKHYAM</strong>
+            <small>MAR THOMA CHURCH</small>
+        </span>
+    </a>
+
+    <nav id="navigation">
+        <a href="#home" data-en="Home" data-ml="ഹോം">Home</a>
+        <a href="#about" data-en="About" data-ml="ഞങ്ങളെക്കുറിച്ച്">About</a>
+        <a href="#events" data-en="Events" data-ml="പരിപാടികൾ">Events</a>
+        <a href="#gallery" data-en="Gallery" data-ml="ഗാലറി">Gallery</a>
+        <a href="#members" data-en="Members" data-ml="അംഗങ്ങൾ">Members</a>
+        <a href="#contact" data-en="Contact" data-ml="ബന്ധപ്പെടുക">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button id="languageBtn" class="language-btn"
+                onclick="toggleLanguage()">മലയാളം</button>
+
+        <button class="admin-btn"
+                onclick="openAdmin()">Admin</button>
+    </div>
+
+</header>
+
+
+<!-- HERO SECTION -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="eyebrow"
+           data-en="WORSHIP • STUDY  •  WITNESS • SERVICE"
+           data-ml="ആരാധന • പഠനം • സാക്ഷ്യം • സേവനം">
+            WORSHIP • STUDY  •  WITNESS • SERVICE
+        </p>
+
+        <h1 data-en="Growing Together in Faith"
+            data-ml="വിശ്വാസത്തിൽ ഒരുമിച്ച് വളരാം">
+            Growing Together in Faith
+        </h1>
+
+        <p class="hero-description"
+           data-en="A community of young people united by faith, friendship and a commitment to serve."
+           data-ml="വിശ്വാസത്തിലും സൗഹൃദത്തിലും സേവനത്തിലും ഒന്നിക്കുന്ന യുവജനങ്ങളുടെ കൂട്ടായ്മ.">
+            A community of young people united by faith,
+            friendship and a commitment to serve.
+        </p>
+
+        <a href="#events" class="primary-btn"
+           data-en="Explore Events →"
+           data-ml="പരിപാടികൾ കാണുക →">
+            Explore Events →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT SECTION -->
+
+<section class="section about" id="about">
+
+    <div class="section-heading">
+        <p class="eyebrow">WHO WE ARE</p>
+
+        <h2 data-en="About Yuvajana Sakhyam"
+            data-ml="യുവജനസഖ്യത്തെക്കുറിച്ച്">
+            About Yuvajana Sakhyam
+        </h2>
+    </div>
+
+    <div class="about-content">
+
+        <p data-en="Yuvajana Sakhyam is the youth fellowship of the Mar Thoma Church, bringing young people together through faith, fellowship, learning and service. We aim to nurture spiritual growth, encourage leadership and contribute positively to society."
+           data-ml="മാർത്തോമ്മാ സഭയുടെ യുവജന കൂട്ടായ്മയാണ് യുവജനസഖ്യം. വിശ്വാസം, കൂട്ടായ്മ, പഠനം, സേവനം എന്നിവയിലൂടെ യുവജനങ്ങളെ ഒന്നിപ്പിക്കുകയും ആത്മീയ വളർച്ചയും നേതൃത്വവും സാമൂഹിക പ്രതിബദ്ധതയും പ്രോത്സാഹിപ്പിക്കുകയും ചെയ്യുന്നു.">
+            Yuvajana Sakhyam is the youth fellowship of the
+            Mar Thoma Church, bringing young people together
+            through faith, fellowship, learning and service.
+        </p>
+
+        <div class="values">
+
+            <div class="value-card">
+                <span>✧</span>
+                <h3>Our Vision</h3>
+                <p>All the young people in the church should accept Jesus Christ as their Saviour and Lord, and bear witness to His Saving Power.</p>
+            </div>
+
+            <div class="value-card">
+                <span>✦</span>
+                <h3>Our Mission</h3>
+                <p>Growing in faith, building fellowship and serving society.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EVENTS SECTION -->
+
+<section class="section events-section" id="events">
+
+    <div class="section-heading">
+        <p class="eyebrow">JOIN OUR COMMUNITY</p>
+        <h2 data-en="Upcoming Events" data-ml="വരാനിരിക്കുന്ന പരിപാടികൾ">
+            Upcoming Events
+        </h2>
+        <p>Discover our programmes and be part of them.</p>
+    </div>
+
+    <div class="event-container" id="eventContainer"></div>
+
+</section>
+
+
+<!-- ANNOUNCEMENTS -->
+
+<section class="section announcements-section" id="announcements">
+
+    <div class="section-heading">
+        <p class="eyebrow">STAY UPDATED</p>
+        <h2 data-en="Latest Announcements"
+            data-ml="പുതിയ അറിയിപ്പുകൾ">
+            Latest Announcements
+        </h2>
+    </div>
+
+    <div id="announcementContainer" class="announcement-container"></div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="section gallery-section" id="gallery">
+
+    <div class="section-heading">
+        <p class="eyebrow">OUR MEMORIES</p>
+        <h2 data-en="Moments Together" data-ml="നമ്മുടെ ഓർമ്മകൾ">
+            Moments Together
+        </h2>
+    </div>
+
+    <div class="gallery-grid">
+
+        <img src="images/cleaning.jpeg" alt="Youth programme"
+             onerror="this.style.display='none'">
+
+        <img src="images/kalamela.jpeg" alt="Church gathering"
+             onerror="this.style.display='none'">
+
+        <img src="images/Youth gathering.jpeg" alt="Youth activities"
+             onerror="this.style.display='none'">
+
+    </div>
+
+    <p class="gallery-note">
+
+    </p>
+
+</section>
+
+
+<!-- MEMBER DIRECTORY -->
+
+<section class="section members-section" id="members">
+
+    <div class="section-heading">
+        <p class="eyebrow">OUR COMMUNITY</p>
+
+        <h2 data-en="Our Members" data-ml="നമ്മുടെ അംഗങ്ങൾ">
+            Our Members
+        </h2>
+
+        <p>
+            United in fellowship and service.
+        </p>
+
+    </div>
+
+    <p class="directory-note">
+        This is a private member directory. Member details
+        are accessible only to authorised administrators.
+    </p>
+
+</section>
+
+
+<!-- REGISTRATION MODAL -->
+
+<div id="registrationModal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close-btn"
+                onclick="closeRegistration()">×</button>
+
+        <h2>Event Registration</h2>
+
+        <p id="selectedEvent"></p>
+
+        <form id="registrationForm">
+
+            <label>Full Name</label>
+            <input type="text" id="regName" required maxlength="80">
+
+            <label>Age</label>
+            <input type="number" id="regAge" min="1" max="100" required>
+
+            <label>Email Address</label>
+            <input type="email" id="regEmail" required maxlength="120">
+
+            <label>Contact Number (optional)</label>
+            <input type="tel" id="regPhone" maxlength="20">
+
+            <label>
+                <input type="checkbox" id="regConsent" required>
+                I agree to submit my information for event registration.
+            </label>
+
+            <button type="submit" class="primary-btn">
+                Submit Registration
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ADMIN DASHBOARD -->
+
+<section id="adminPanel" class="admin-panel">
+
+    <div class="admin-header">
+        <h2>Admin Dashboard</h2>
+        <button onclick="closeAdmin()" class="close-btn">×</button>
+    </div>
+
+    <p class="demo-warning">
+        Demonstration dashboard only. It is not protected by real
+        administrator authentication.
+    </p>
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <h3 id="eventCount">0</h3>
+            <p>Events</p>
+        </div>
+
+        <div class="stat-card">
+            <h3 id="registrationCount">0</h3>
+            <p>Registrations</p>
+        </div>
+
+        <div class="stat-card">
+            <h3 id="announcementCount">0</h3>
+            <p>Announcements</p>
+        </div>
+
+    </div>
+
+    <div class="admin-form">
+
+        <h3>Add New Event</h3>
+
+        <form id="eventForm">
+
+            <input id="eventName" placeholder="Event name" required maxlength="100">
+
+            <input id="eventDate" type="date" required>
+
+            <input id="eventVenue" placeholder="Venue" required maxlength="100">
+
+            <textarea id="eventDescription"
+                      placeholder="Event description"
+                      maxlength="500"></textarea>
+
+            <button class="primary-btn">Add Event</button>
+
+        </form>
+
+    </div>
+
+
+    <div class="admin-form">
+
+        <h3>Post Announcement</h3>
+
+        <form id="announcementForm">
+
+            <input id="announcementTitle"
+                   placeholder="Announcement title"
+                   required maxlength="100">
+
+            <textarea id="announcementText"
+                      placeholder="Write your announcement"
+                      required maxlength="1000"></textarea>
+
+            <button class="primary-btn">Publish Announcement</button>
+
+        </form>
+
+    </div>
+
+
+    <div class="admin-form">
+
+        <h3>Registration Records</h3>
+
+        <div id="registrationRecords"></div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="section contact-section" id="contact">
+
+    <h2>Connect With Us</h2>
+
+    <p>Yuvajana Sakhyam | Parackathanam St Thomas Mar Thoma Church</p>
+
+    <p>Address: Parackathanam Perumpramavu P.O. Keezhvaipur</p>
+
+    <p>Email: Add your official email</p>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 Parackathanam Yuvajana Sakhyam. All Rights Reserved.</p>
+    <p>Worship • Study  •  Witness • Service</p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
