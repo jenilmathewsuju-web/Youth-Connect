@@ -470,3 +470,83 @@ footer {
     }
 
 }
+
+/* EVENT REGISTRATION CALENDAR */
+
+.event-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.event-calendar {
+    background: #f5f3ed;
+    border: 1px solid #e6dfce;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 18px 0;
+}
+
+.calendar-heading {
+    color: #172d46;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.calendar-date {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #e2ddcf;
+    font-size: 12px;
+}
+
+.calendar-date:last-child {
+    border-bottom: none;
+}
+
+.calendar-date strong {
+    color: #172d46;
+}
+
+.registration-status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.status-open {
+    background: #dff4e5;
+    color: #217542;
+}
+
+.status-upcoming {
+    background: #fff0d5;
+    color: #91641b;
+}
+
+.status-closed {
+    background: #fce4e4;
+    color: #a52b2b;
+}
+
+.registration-countdown {
+    font-size: 12px;
+    color: #526477;
+    margin: 8px 0;
+}
+
+.event-register-btn {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.event-register-btn:disabled {
+    background: #b9bec4;
+    color: #ffffff;
+    cursor: not-allowed;
+}
